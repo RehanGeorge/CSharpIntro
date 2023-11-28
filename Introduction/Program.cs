@@ -21,7 +21,7 @@
                 {
                     Console.WriteLine("It's 20 degrees celsius. You should be fine");
                 }
-                else if (temperature > 20)
+                else
                 {
                     Console.WriteLine("Wear something light");
                 }
