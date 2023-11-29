@@ -16,6 +16,7 @@ namespace Introduction
             //HighScore(50, "Test");
             //HighScore(150, "Rehan");
             //Ternary();
+            /*
             Console.WriteLine("Please enter a number: ");
             string tempInput = Console.ReadLine();
             if(int.TryParse(tempInput, out int number))
@@ -26,6 +27,12 @@ namespace Introduction
             {
                 Console.WriteLine("Number not entered.");
             }
+            */
+            //ForLoops();
+            //DoWhile();
+            //WhileLoop();
+            //Break();
+            AverageScore();
         }
         public static void IfElse()
         {
@@ -165,6 +172,93 @@ namespace Introduction
 
             outputText = input <= 15 ? "It is too cold here." : input >= 16 && input <= 28 ? "It is ok here." : "It is too hot here.";
             Console.WriteLine(outputText);
+        }
+        public static void ForLoops()
+        {
+            for (int i = 1; i <= 20; i+=2)
+            {
+                Console.WriteLine("i is " + i);
+            }
+        }
+        public static void DoWhile()
+        {
+            int lengthOfText = 0;
+            string wholeText = "";
+            do
+            {
+                Console.WriteLine("Please enter the name of a friend");
+                string nameOfFriend = Console.ReadLine();
+                int currentLength = nameOfFriend.Length;
+                lengthOfText += currentLength;
+                wholeText += $" {nameOfFriend}";
+            } while (lengthOfText < 20);
+            Console.WriteLine($"Thanks, that was enough! {wholeText}");
+        }
+        public static void WhileLoop()
+        {
+            int counter = 0;
+            while (counter < 10)
+            {
+                Console.WriteLine("Press enter when someone enters the bus");
+                string input = Console.ReadLine();
+                if (input != "")
+                {
+                    continue;
+                }
+                counter++;
+                Console.WriteLine($"Current counter is at {counter}.");
+            }
+        }
+        public static void Break()
+        {
+            for (int i = 0; i < 10; i++)
+            {
+                if (i == 3)
+                {
+                    Console.WriteLine("Found three! Continuing without printing.");
+                    continue;
+                }
+                if (i == 7)
+                {
+                    Console.WriteLine("Found seven! Breaking.");
+                    break;
+                }
+                Console.WriteLine(i);
+            }
+        }
+        public static void AverageScore()
+        {
+            int total = 0;
+            int counter = 0;
+            float average = 0.0f;
+
+            while (true)
+            {
+                Console.WriteLine("Please enter a score: ");
+                string input = Console.ReadLine();
+                if (int.TryParse(input, out int score))
+                {
+                    if (score == -1)
+                    {
+                        average = (float)total / counter;
+                        Console.WriteLine($"Total score is {total} with {counter} students. Average score is hence {average}.");
+                        break;
+                    }
+                    if (score > 20 || score < 0)
+                    {
+                        Console.WriteLine("Invalid score, please enter a score between 0 and 20.");
+                        continue;
+                    }
+                    total += score;
+                    counter++;
+                    Console.WriteLine($"Total score is {total} with {counter} students.");
+                }
+                else
+                {
+                    Console.WriteLine("Invalid input, please enter a number.");
+                }
+                
+            }
         }
     }
 }
